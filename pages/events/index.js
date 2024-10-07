@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import EventCard from '../../components/game/EventCard';
 import { getEvents } from '../../utils/data/eventData';
 
-
 function Home() {
   const [events, setEvents] = useState([]);
 
