@@ -90,8 +90,6 @@ const GameForm = ({ user }) => {
           <Form.Label>Skill Level</Form.Label>
           <Form.Control name="skillLevel" required value={currentGame.skillLevel} onChange={handleChange} />
         </Form.Group>
-        {/* TODO: create the rest of the input fields */}
-
         <Button variant="primary" type="submit">
           Submit
         </Button>
