@@ -29,6 +29,12 @@ const GameForm = ({ user }) => {
   const handleChange = (e) => {
     // TODO: Complete the onChange function
     e.preventDefault();
+    const { name, value } = e.target;
+
+    setCurrentGame((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = (e) => {
@@ -40,7 +46,7 @@ const GameForm = ({ user }) => {
       title: currentGame.title,
       numberOfPlayers: Number(currentGame.numberOfPlayers),
       skillLevel: Number(currentGame.skillLevel),
-      gameType: Number(currentGame.gameTypeId),
+      gameTypeId: Number(currentGame.gameTypeId),
       userId: user.uid,
     };
     setCurrentGame(game);
@@ -59,7 +65,7 @@ const GameForm = ({ user }) => {
           <Form.Label>Type of Game</Form.Label>
           <Form.Control
             as="select"
-            name="game_type"
+            name="gameTypeId"
             required
             value={currentGame.gameTypeId}
             onChange={handleChange}
@@ -71,6 +77,18 @@ const GameForm = ({ user }) => {
               </option>
             ))}
           </Form.Control>
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Maker</Form.Label>
+          <Form.Control name="maker" required value={currentGame.maker} onChange={handleChange} />
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Number of Players</Form.Label>
+          <Form.Control name="numberOfPlayers" required value={currentGame.numberOfPlayers} onChange={handleChange} />
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Skill Level</Form.Label>
+          <Form.Control name="skillLevel" required value={currentGame.skillLevel} onChange={handleChange} />
         </Form.Group>
         {/* TODO: create the rest of the input fields */}
 
